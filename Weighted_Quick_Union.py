@@ -29,9 +29,16 @@ class Weighted_Quick_Union():
         return self.root(p) == self.root(q)
 
     def union(self, p, q):
-        i = self.root(p)
-        j = self.root(q)
-        self.id[i] = j
+        rootp = self.root(p)
+        rootq = self.root(q)
+        if rootp == rootq:
+            return
+        if self.sz[rootp] < self.sz[rootq]:
+            self.id[rootp] = rootq
+            self.sz[rootq] += self.sz[rootp]
+        else:
+            self.id[rootq] = rootp
+            self.sz[rootp] += self.sz[rootq]
 
 
 if __name__ == '__main__':
