@@ -42,4 +42,7 @@ class Weighted_Quick_Union():
 
 
 if __name__ == '__main__':
-    print "hello"
+    test = Weighted_Quick_Union(5)
+    print test.is_connected(3, 4)
+    test.union(3, 4)
+    print test.is_connected(3, 4)
